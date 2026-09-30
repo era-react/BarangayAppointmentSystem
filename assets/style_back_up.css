@@ -1,0 +1,2265 @@
+/* =========================================
+   BARANGAY APPOINTMENT MANAGEMENT SYSTEM
+   Main Design
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+   background: #eef4f0;
+    color: #26332d;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   GENERAL
+========================================= */
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: #174d35;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #176b45;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   PAGE CONTAINER
+========================================= */
+
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: 40px auto;
+}
+
+/* =========================================
+   HEADER / NAVIGATION
+========================================= */
+
+.navbar {
+    background: #174d35;
+    color: white;
+    padding: 20px 5%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
+}
+
+.navbar-content {
+    max-width: 1150px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-title {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+}
+
+.navbar a {
+    color: white;
+    margin-left: 20px;
+    font-size: 16px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+/* =========================================
+   HERO / WELCOME SECTION
+========================================= */
+
+.hero {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    border-left: 6px solid #218653;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 19px;
+    color: #53615a;
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #dfe8e2;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   SERVICE CARDS
+========================================= */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    border-top: 5px solid #218653;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.service-card h3 {
+    margin-bottom: 8px;
+}
+
+.service-card p {
+    color: #59665f;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button,
+.button {
+    display: inline-block;
+    background: #218653;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 22px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+button:hover,
+.button:hover {
+    background: #176b45;
+    text-decoration: none;
+}
+
+.button-secondary {
+    background: #60736a;
+}
+
+.button-danger {
+    background: #b42318;
+}
+
+.button-danger:hover {
+    background: #8f1c13;
+}
+
+/* =========================================
+   FORMS
+========================================= */
+
+.form-card {
+    background: white;
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid #dfe8e2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #34423b;
+}
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    margin-top: 6px;
+    border: 1px solid #c5d0c9;
+    border-radius: 8px;
+    background: #ffffff;
+    font-size: 17px;
+    font-family: inherit;
+    color: #26332d;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid #c8ead8;
+    border-color: #218653;
+}
+
+/* =========================================
+   ALERT / MESSAGE
+========================================= */
+
+.message {
+    background: #e8f5ed;
+    color: #155c39;
+    padding: 16px 20px;
+    border-radius: 9px;
+    margin-bottom: 22px;
+    border-left: 5px solid #218653;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard-header {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    border-top: 5px solid #218653;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.dashboard-card h3 {
+    margin-bottom: 8px;
+}
+
+.dashboard-card p {
+    color: #59665f;
+}
+
+/* =========================================
+   TABLES
+========================================= */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 18px;
+    border: 1px solid #dfe8e2;
+}
+
+th {
+    background: #174d35;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+td {
+    padding: 14px;
+    border-bottom: 1px solid #e0e5e2;
+    vertical-align: top;
+}
+
+tr:hover {
+    background: #f3f8f5;
+}
+
+/* =========================================
+   STATUS BADGES
+========================================= */
+
+.status {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.status-pending {
+    background: #fff1c7;
+    color: #785900;
+}
+
+.status-approved {
+    background: #d9f2df;
+    color: #155c39;
+}
+
+.status-completed {
+    background: #dcecff;
+    color: #174a7a;
+}
+
+.status-cancelled {
+    background: #eeeeee;
+    color: #555555;
+}
+
+.status-rejected {
+    background: #f9dddd;
+    color: #8a1c1c;
+}
+
+/* =========================================
+   SECTION
+========================================= */
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    margin-top: 60px;
+    padding: 30px 25px;
+    text-align: center;
+    background: #174d35;
+    color: white;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* =========================================
+   MOBILE / SENIOR FRIENDLY
+========================================= */
+
+@media (max-width: 800px) {
+
+    body {
+        font-size: 18px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .navbar-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar a {
+        margin-left: 0;
+        margin-right: 18px;
+    }
+
+    .hero {
+        padding: 30px 22px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .service-grid,
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card {
+        padding: 25px 20px;
+    }
+
+    button,
+    .button {
+        padding: 15px 20px;
+        font-size: 18px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    table {
+        min-width: 800px;
+    }
+}
+.service-card {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-top-color 0.25s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-top-color: #176b45;
+}
+
+.dashboard-card {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-top-color 0.25s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-top-color: #176b45;
+}
+
+button,
+.button {
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover,
+.button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar a {
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.navbar a:hover {
+    color: white;
+    background: #218653;
+    text-decoration: none;
+}
+
+table tr {
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+table tr:hover {
+    background: #f3f8f5;
+}
+
+label {
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+label:hover {
+    background: #eaf5ee;
+    border-color: #218653;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 50px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 8px;
+    margin: 0;
+    color: #174d35;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.password-toggle:hover {
+    background: transparent;
+    box-shadow: none;
+    transform: translateY(-50%);
+}
+
+.appointment-status-message {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 280px;
+}
+/* =========================================
+   APPOINTMENT ACTION BUTTONS
+========================================= */
+
+.appointment-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 120px;
+}
+
+.appointment-actions .action-button {
+    display: block;
+    width: 120px;
+    padding: 10px 14px;
+    border-radius: 7px;
+    text-align: center;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 1.2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.appointment-actions .approve-button {
+    background: #198754 !important;
+    color: #ffffff !important;
+}
+
+.appointment-actions .reject-button {
+    background: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+.appointment-actions .action-button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+    text-decoration: none !important;
+}
+
+.action-button.process-button {
+    display: inline-block;
+    background: #0d6efd !important;
+    color: #ffffff !important;
+    padding: 10px 14px;
+    border-radius: 7px;
+    text-align: center;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.action-button.process-button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+    text-decoration: none !important;
+}
+
+
+/* =========================================
+   STAFF / ADMIN SIDEBAR
+   Professional fixed navigation
+========================================= */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: #174d35;
+    color: #ffffff;
+    padding: 0;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.12);
+}
+
+/* System name */
+.sidebar-brand {
+    padding: 26px 22px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.sidebar-brand h2 {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 5px;
+}
+
+.sidebar-brand p {
+    color: #cfe6d9;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Sidebar sections */
+.sidebar-section-title {
+    color: #9fc4b0;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 22px 15px 8px;
+}
+
+/* Navigation */
+.sidebar-menu {
+    padding: 0 12px 20px;
+}
+
+.sidebar-menu a {
+    display: block;
+    color: #ffffff;
+    padding: 12px 15px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+    background: #218653;
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateX(2px);
+}
+
+.sidebar-menu a.active {
+    background: #218653;
+    color: #ffffff;
+}
+
+/* Account section */
+.sidebar-account {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Logout */
+.sidebar-menu a.logout-link {
+    margin-top: 8px;
+    color: #f5d0d0;
+}
+
+.sidebar-menu a.logout-link:hover {
+    background: #8b3a3a;
+    color: #ffffff;
+}
+
+/* =========================================
+   STAFF / ADMIN MAIN AREA
+========================================= */
+
+.staff-layout {
+    margin-left: 250px;
+    min-height: 100vh;
+}
+
+.staff-layout .container {
+    width: 92%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* =========================================
+   TOP ACCOUNT AREA
+========================================= */
+
+.staff-topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.staff-account {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.staff-account-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #174d35;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.staff-account-info {
+    line-height: 1.25;
+}
+
+.staff-account-name {
+    color: #222222;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.staff-account-role {
+    color: #777777;
+    font-size: 12px;
+    margin: 3px 0 0;
+}
+
+/* =========================================
+   STAFF PAGE HEADER
+========================================= */
+
+.staff-page-header {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 18px;
+    margin-bottom: 25px;
+}
+
+.staff-page-header h1 {
+    margin: 0 0 6px;
+    font-size: 30px;
+    color: #222222;
+}
+
+.staff-page-header p {
+    margin: 0;
+    color: #777777;
+    font-size: 14px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+    }
+
+    .sidebar-brand {
+        padding: 22px 20px;
+    }
+
+    .sidebar-menu {
+        padding: 0 12px 18px;
+    }
+
+    .staff-layout {
+        margin-left: 0;
+    }
+
+    .staff-layout .container {
+        width: 92%;
+        padding: 25px 0;
+    }
+
+    .staff-topbar {
+        justify-content: flex-start;
+    }
+
+    .staff-page-header h1 {
+        font-size: 26px;
+    }
+}
+
+/* =========================================
+   PROFESSIONAL STAFF DASHBOARD
+========================================= */
+
+/* Dashboard header */
+
+.staff-page-header {
+    padding: 10px 0 20px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #dfe7e2;
+}
+
+.staff-page-header h1 {
+    margin: 0 0 8px;
+    color: #174d35;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.staff-page-header p {
+    margin: 0;
+    color: #68756e;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* Top account */
+
+.staff-topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.staff-account {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.staff-account-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #174d35;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.staff-account-info {
+    line-height: 1.2;
+}
+
+.staff-account-name {
+    margin: 0;
+    color: #222222;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.staff-account-role {
+    margin: 4px 0 0;
+    color: #7a847f;
+    font-size: 12px;
+}
+
+
+/* Section heading */
+
+.section-title {
+    color: #174d35;
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+
+/* Dashboard grid */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+
+/* Dashboard cards */
+
+.dashboard-card {
+
+    background: #ffffff;
+
+    border: 1px solid #e2e9e5;
+
+    border-top: 4px solid #218653;
+
+    border-radius: 12px;
+
+    padding: 24px;
+
+    min-height: 215px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-top-color 0.25s ease;
+
+    cursor: pointer;
+}
+
+.dashboard-card:hover {
+
+    transform: translateY(-6px) scale(1.02);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+    border-top-color: #176b45;
+}
+
+.dashboard-card h3 {
+    color: #174d35;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 12px;
+}
+
+.dashboard-card p {
+    color: #5f6b65;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+
+/* Keep buttons at the bottom */
+
+.dashboard-card .button {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+
+/* Workflow section */
+
+.staff-layout .card {
+    margin-top: 32px;
+    padding: 26px;
+    border: 1px solid #e2e9e5;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.staff-layout .card h2 {
+    color: #174d35;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.staff-layout .card > p {
+    color: #68756e;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+
+/* Responsive dashboard */
+
+@media (max-width: 1000px) {
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .staff-page-header h1 {
+        font-size: 28px;
+    }
+
+    .staff-topbar {
+        justify-content: flex-start;
+    }
+
+    .dashboard-card {
+        min-height: auto;
+    }
+
+}
+
+/* =========================================
+   TIGHTER STAFF DASHBOARD HEADER
+========================================= */
+
+.staff-layout .container {
+    padding-top: 24px;
+}
+
+.staff-topbar {
+    margin-bottom: 8px;
+}
+
+.staff-page-header {
+    padding: 4px 0 14px;
+    margin-bottom: 20px;
+}
+
+.staff-page-header h1 {
+    margin-bottom: 5px;
+    font-size: 30px;
+}
+
+.staff-page-header p {
+    line-height: 1.4;
+}
+
+.section-title {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 23px;
+}
+/* =========================================
+   COMPACT PROFESSIONAL SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 220px;
+}
+
+.sidebar-brand {
+    padding: 22px 18px 18px;
+}
+
+.sidebar-brand h2 {
+    font-size: 18px;
+}
+
+.sidebar-brand p {
+    font-size: 12px;
+}
+
+.sidebar-section-title {
+    margin: 18px 13px 7px;
+    font-size: 10px;
+}
+
+.sidebar-menu {
+    padding: 0 9px 18px;
+}
+
+.sidebar-menu a {
+    padding: 10px 13px;
+    margin-bottom: 3px;
+    font-size: 14px;
+    border-radius: 7px;
+}
+
+.staff-layout {
+    margin-left: 220px;
+}
+
+/* =========================================
+   RESIDENT ACCOUNTS TABLE
+========================================= */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border: 1px solid #e2e9e5;
+    border-radius: 10px;
+}
+
+.table-container table {
+    width: 100%;
+    min-width: 1100px;
+    border-collapse: collapse;
+}
+
+/* Keep important information on one line */
+
+.table-container th {
+    white-space: nowrap;
+    padding: 14px 16px;
+    text-align: left;
+}
+
+.table-container td {
+    padding: 14px 16px;
+    vertical-align: top;
+}
+
+/* Name */
+
+.table-container th:nth-child(2),
+.table-container td:nth-child(2) {
+    min-width: 150px;
+    white-space: nowrap;
+}
+
+/* Email */
+
+.table-container th:nth-child(3),
+.table-container td:nth-child(3) {
+    min-width: 210px;
+    white-space: nowrap;
+}
+
+/* Contact number */
+
+.table-container th:nth-child(4),
+.table-container td:nth-child(4) {
+    min-width: 140px;
+    white-space: nowrap;
+}
+
+/* Address */
+
+.table-container th:nth-child(5),
+.table-container td:nth-child(5) {
+    min-width: 260px;
+    white-space: normal;
+    line-height: 1.6;
+}
+
+/* Status */
+
+.table-container th:nth-child(6),
+.table-container td:nth-child(6) {
+    min-width: 110px;
+    white-space: nowrap;
+}
+
+/* Action */
+
+.table-container th:nth-child(7),
+.table-container td:nth-child(7) {
+    min-width: 150px;
+    white-space: nowrap;
+}
+        /* =========================================
+           APPOINTMENT TABLE HORIZONTAL SCROLL
+        ========================================== */
+
+        .appointment-table-wrapper {
+            width: 100%;
+        }
+
+        .appointment-table-scroll-top {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            margin-bottom: 6px;
+        }
+
+        .appointment-table-scroll-top > div {
+            height: 1px;
+        }
+
+        .appointment-table-container {
+            overflow-x: auto;
+            overflow-y: visible;
+        }
+        /* =========================================
+   RESIDENT TABLE HORIZONTAL SCROLL
+========================================= */
+
+.resident-table-wrapper {
+    width: 100%;
+}
+
+.resident-table-scroll-top {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-bottom: 6px;
+}
+
+.resident-table-scroll-top > div {
+    height: 1px;
+}
+
+.resident-table-container {
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+/* CLICKABLE STAFF ACCOUNT */
+
+.staff-account {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+.staff-account:hover {
+    background: #f1f5f2;
+}
+
+.staff-account:focus {
+    outline: 2px solid #218653;
+    outline-offset: 2px;
+}
+
+.staff-account:hover .staff-account-name {
+    color: #174d35;
+}
+/* =========================================================
+   PROFILE PAGE
+   ========================================================= */
+
+.profile-card {
+    margin-top: 24px;
+    padding: 26px;
+}
+
+.profile-card h2 {
+    margin-top: 0;
+    margin-bottom: 22px;
+    color: #174d35;
+    font-size: 21px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.profile-item {
+    padding: 16px;
+    background: #f7f9f8;
+    border: 1px solid #e2e9e5;
+    border-radius: 9px;
+    min-width: 0;
+}
+
+.profile-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #748079;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.profile-value {
+    display: block;
+    color: #26332d;
+    font-size: 15px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.profile-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #e9f5ee;
+    color: #17643d;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.profile-description {
+    color: #68756e;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.secondary-button {
+    background: #eef2ef;
+    color: #174d35;
+}
+
+.secondary-button:hover {
+    background: #e1e8e3;
+}
+
+
+/* =========================================================
+   RESIDENT PROFILE HEADER
+   ========================================================= */
+
+.profile-resident-topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 24px 0 8px;
+}
+
+.profile-resident-account {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-resident-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #174d35;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.profile-resident-name {
+    margin: 0;
+    color: #222;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.profile-resident-role {
+    margin: 4px 0 0;
+    color: #7a847f;
+    font-size: 12px;
+}
+
+.profile-page-header {
+    padding: 10px 0 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dfe7e2;
+}
+
+.profile-page-header h1 {
+    margin: 0 0 8px;
+    color: #174d35;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.profile-page-header p {
+    margin: 0;
+    color: #68756e;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CLICKABLE STAFF ACCOUNT
+   ========================================================= */
+
+.staff-account {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+.staff-account:hover {
+    background: #f1f5f2;
+}
+
+.staff-account:focus {
+    outline: 2px solid #218653;
+    outline-offset: 2px;
+}
+
+.staff-account:hover .staff-account-name {
+    color: #174d35;
+}
+
+
+/* =========================================================
+   PROFILE RESPONSIVE LAYOUT
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        padding: 20px;
+    }
+
+    .profile-page-header h1 {
+        font-size: 28px;
+    }
+
+    .profile-resident-topbar {
+        justify-content: flex-start;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .profile-actions .button {
+        text-align: center;
+    }
+
+}
+
+/* DASHBOARD WORKFLOW */
+
+.dashboard-workflow {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 24px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.workflow-step {
+    flex: 1 1 150px;
+    min-width: 150px;
+    padding: 16px;
+    background: #f7f9f8;
+    border: 1px solid #e2e9e5;
+    border-radius: 9px;
+}
+
+.workflow-step strong {
+    display: block;
+    color: #174d35;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.workflow-step span {
+    display: block;
+    color: #68756e;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.workflow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #218653;
+    font-size: 20px;
+    font-weight: 700;
+    min-width: 20px;
+}
+
+@media (max-width: 900px) {
+
+    .dashboard-workflow {
+        align-items: stretch;
+    }
+
+    .workflow-step {
+        min-width: 180px;
+    }
+
+}
+
+/* DASHBOARD FOOTER */
+
+.site-footer {
+    margin-top: 40px;
+    padding: 24px 20px;
+    background: #174d35;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.site-footer p {
+    margin: 4px 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.site-footer p:first-child {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.site-footer p:last-child {
+    opacity: 0.85;
+}
+
+/* FULL-WIDTH STAFF FOOTER */
+
+.site-footer {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 40px;
+    padding: 24px 20px;
+    background: #174d35;
+    color: #ffffff;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 4px 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.site-footer p:first-child {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.site-footer p:last-child {
+    opacity: 0.85;
+}
+
+/* =========================================
+   RESIDENT TOPBAR
+========================================= */
+
+/* =========================================
+   RESIDENT TOP BAR
+========================================= */
+
+.resident-topbar {
+    background: #174d35;
+    color: #ffffff;
+    border-bottom: 1px solid #123c29;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+}
+
+.resident-topbar-inner {
+    width: 92%;
+    max-width: 1150px;
+    min-height: 78px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.resident-brand {
+    flex-shrink: 0;
+}
+
+.resident-brand h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.resident-brand p {
+    margin: 4px 0 0;
+    color: #d7e8de;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   RESIDENT TOP NAVIGATION
+========================================= */
+
+.resident-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.resident-nav-link {
+    display: inline-block;
+    padding: 9px 11px;
+    border-radius: 7px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.resident-nav-link:hover {
+    background: #218653;
+    color: #ffffff;
+}
+
+.resident-nav-active {
+    background: #218653;
+}
+
+.resident-logout-link:hover {
+    background: #b42318;
+}
+
+
+/* =========================================
+   CONTACT OFFICE BUTTON
+========================================= */
+
+.resident-contact-button {
+    display: inline-block;
+    padding: 8px 11px;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: none;
+}
+
+.resident-contact-button:hover {
+    background: #218653;
+    border-color: #218653;
+    color: #ffffff;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* =========================================
+   RESIDENT PROFILE / ACCOUNT
+========================================= */
+
+.resident-account {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 5px 8px;
+    border-radius: 9px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.resident-account:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.resident-account-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #174d35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.resident-account-info {
+    line-height: 1.2;
+}
+
+.resident-account-name {
+    margin: 0;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.resident-account-role {
+    margin: 3px 0 0;
+    color: #d7e8de;
+    font-size: 11px;
+}
+
+
+/* =========================================
+   CONTACT OFFICE PANEL
+========================================= */
+
+.resident-contact-panel {
+    background: #f7f9f8;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.resident-contact-content {
+    width: 92%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.resident-contact-content h3 {
+    margin: 0 0 7px;
+    color: #174d35;
+    font-size: 18px;
+}
+
+.resident-contact-content > p {
+    margin: 0 0 18px;
+    color: #68756e;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.resident-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.resident-contact-item {
+    padding: 14px;
+    background: #ffffff;
+    border: 1px solid #e2e9e5;
+    border-radius: 8px;
+}
+
+.resident-contact-item span {
+    display: block;
+    margin-bottom: 5px;
+    color: #7a847f;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.resident-contact-item strong {
+    display: block;
+    color: #26332d;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   RESIDENT TOP BAR - RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .resident-topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+    }
+
+    .resident-navigation {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .resident-contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .resident-navigation {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .resident-nav-link,
+    .resident-contact-button {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    .resident-account {
+        width: 100%;
+    }
+
+    .resident-contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================
+   RESIDENT SIDEBAR ACTION
+   MATCHES STAFF SIDEBAR SIZE
+========================================= */
+
+.sidebar-action-button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 3px;
+    padding: 10px 13px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.sidebar-action-button:hover {
+    background: #218653;
+    color: #ffffff;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* =========================================
+   RESIDENT CONTACT PANEL
+========================================= */
+
+.resident-contact-panel {
+    margin-bottom: 20px;
+    background: #f7f9f8;
+    border: 1px solid #dfe7e2;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.resident-contact-content {
+    padding: 20px 22px;
+}
+
+.resident-contact-panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.resident-contact-content h3 {
+    margin: 0 0 7px;
+    color: #174d35;
+    font-size: 19px;
+}
+
+.resident-contact-content p {
+    margin: 0;
+    color: #68756e;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.resident-contact-close {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid #d4dfd9;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #174d35;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.resident-contact-close:hover {
+    background: #eef5f0;
+    color: #174d35;
+    transform: none;
+    box-shadow: none;
+}
+
+.resident-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.resident-contact-item {
+    min-width: 0;
+    padding: 14px;
+    background: #ffffff;
+    border: 1px solid #e2e9e5;
+    border-radius: 8px;
+}
+
+.resident-contact-item span {
+    display: block;
+    margin-bottom: 6px;
+    color: #748079;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.resident-contact-item strong {
+    display: block;
+    color: #26332d;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   RESIDENT DASHBOARD HEADER
+   MATCHES STAFF PAGE HEADER
+========================================= */
+
+.resident-dashboard-header {
+    padding: 4px 0 14px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dfe7e2;
+}
+
+.resident-dashboard-header h1 {
+    margin: 0 0 5px;
+    color: #174d35;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.resident-dashboard-header p {
+    margin: 4px 0;
+    color: #68756e;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   RESIDENT FOOTER
+   SAME WIDTH AREA AS STAFF FOOTER
+========================================= */
+
+.site-footer {
+    margin-top: 40px;
+    padding: 24px 20px;
+    background: #174d35;
+    color: #ffffff;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 4px 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.site-footer p:first-child {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.site-footer p:last-child {
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   RESIDENT RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .resident-contact-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .resident-contact-panel-header {
+        flex-direction: row;
+    }
+
+    .resident-contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resident-dashboard-header h1 {
+        font-size: 28px;
+    }
+
+}
+
+/* =========================================
+   RESIDENT SIDEBAR CONTACT OFFICE
+========================================= */
+
+.resident-sidebar-contact {
+    margin: 2px 9px 8px;
+    padding: 14px;
+    background: #123c29;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+}
+
+.resident-sidebar-contact-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.resident-sidebar-contact-header strong {
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.resident-sidebar-contact-close {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.resident-sidebar-contact-close:hover {
+    background: rgba(255, 255, 255, 0.10);
+    color: #ffffff;
+    transform: none;
+    box-shadow: none;
+}
+
+.resident-sidebar-contact > p {
+    margin: 10px 0 12px;
+    color: #d7e8de;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.resident-sidebar-contact-item {
+    padding: 9px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.resident-sidebar-contact-item span {
+    display: block;
+    margin-bottom: 3px;
+    color: #a9c6b6;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.resident-sidebar-contact-item strong {
+    display: block;
+    color: #ffffff;
+    font-size: 11px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   RESIDENT APPOINTMENT TABLE SCROLL
+========================================= */
+
+.resident-table-scroll-top {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-bottom: 6px;
+}
+
+.resident-table-scroll-top-inner {
+    height: 1px;
+    min-width: 1100px;
+}
+
+.resident-table-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+.resident-appointments-table {
+    width: 100%;
+    min-width: 1100px;
+    border-collapse: collapse;
+}
+
+.resident-appointments-table th,
+.resident-appointments-table td {
+    white-space: nowrap;
+}
+
+.resident-appointments-table th:nth-child(5),
+.resident-appointments-table td:nth-child(5) {
+    min-width: 260px;
+    white-space: normal;
+}
+
+.resident-appointments-table th:nth-child(6),
+.resident-appointments-table td:nth-child(6) {
+    min-width: 180px;
+    white-space: normal;
+}
+
+.resident-appointments-table th:nth-child(7),
+.resident-appointments-table td:nth-child(7) {
+    min-width: 240px;
+    white-space: normal;
+}
+
+.resident-appointments-table th:nth-child(8),
+.resident-appointments-table td:nth-child(8) {
+    min-width: 150px;
+    white-space: normal;
+}
+
+/* =========================================
+   RESIDENT PAGE TOP SPACING
+   MATCHES STAFF PAGES
+========================================= */
+
+.staff-layout .container {
+    padding-top: 24px;
+}
+
+.staff-topbar {
+    margin-bottom: 8px;
+}
+
+.staff-page-header {
+    padding: 4px 0 14px;
+    margin-bottom: 20px;
+}
+
+.staff-page-header h1 {
+    margin-bottom: 5px;
+    font-size: 30px;
+}
+
+.staff-page-header p {
+    line-height: 1.4;
+}
+
+
+
+/* =========================================
+   HEADER ALIGNMENT (all staff / resident pages)
+   Puts the profile on the same line as the page title.
+   Layout only - no PHP needed.
+========================================= */
+
+.staff-layout .container {
+    position: relative;
+}
+
+.staff-layout .container > .staff-topbar {
+    position: absolute;
+    top: 22px;
+    right: 0;
+    margin: 0;
+    z-index: 5;
+}
+
+.staff-layout .container > .staff-page-header:not(.resident-header-row) h1 {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding-right: 260px;
+}
+
+@media (max-width: 800px) {
+    .staff-layout .container > .staff-topbar {
+        position: static;
+        margin-bottom: 8px;
+    }
+
+    .staff-layout .container > .staff-page-header:not(.resident-header-row) h1 {
+        padding-right: 0;
+    }
+}
